@@ -1,25 +1,20 @@
 import Link from "next/link";
 
-const MainHeader = () => (
-  <>
-    <header>
-      <h2>Main Header</h2>
+export default function MainHeader() {
+  return (
+    <header id="main-header">
+      <div id="logo">
+        <Link href="/">NextNews</Link>
+      </div>
       <nav>
         <ul>
           <li>
-            <Link href="/">
-              <p>Home</p>
-            </Link>
-          </li>
-          <li>
-            <Link href="/news">
-              <p>News</p>
-            </Link>
+            <Link href="/news">News</Link>
           </li>
         </ul>
       </nav>
     </header>
-  </>
-);
+  );
+}
 
 export { MainHeader };
