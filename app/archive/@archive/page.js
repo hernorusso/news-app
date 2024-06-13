@@ -5,15 +5,17 @@ const ArchivePage = () => {
   const years = getAvailableNewsYears();
 
   return (
-    <nav id="archive-header">
-      <ul>
-        {years.map((year) => (
-          <li key={year}>
-            <Link href={`/archive/${year}`}>{year}</Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <header id="archive-header">
+      <nav>
+        <ul>
+          {years.map((year) => (
+            <li key={year}>
+              <Link href={`/archive/${year}`}>{year}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </header>
   );
 };
 
