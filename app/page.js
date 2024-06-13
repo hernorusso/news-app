@@ -1,4 +1,4 @@
-import { AppHeader } from "./(app-header)/page";
+import { AppHeader } from "./(main-header)/page";
 
 export default function HomePage() {
   return (

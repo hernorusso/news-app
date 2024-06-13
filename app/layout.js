@@ -1,4 +1,4 @@
-import { AppHeader } from "./(app-header)/page";
+import { MainHeader } from "./(main-header)/page";
 import "./globals.css";
 
 export const metadata = {
@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <AppHeader />
+        <MainHeader />
         <main>{children}</main>
       </body>
     </html>
