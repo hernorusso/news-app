@@ -1,4 +1,6 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
+
 import { DUMMY_NEWS } from "@/dummy-news";
 
 const NewsArticlePage = ({ params: { slug } }) => {
@@ -10,7 +12,9 @@ const NewsArticlePage = ({ params: { slug } }) => {
   return (
     <article className="news-article">
       <header>
-        <img src={`/images/news/${image}`} alt={title} />
+        <Link href={`${slug}/image`}>
+          <img src={`/images/news/${image}`} alt={title} />
+        </Link>
         <h1>{title}</h1>
         <time dateTime={date}>{date}</time>
       </header>
