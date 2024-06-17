@@ -12,21 +12,29 @@ const YEAR_SELECTOR = 0;
 const MONTH_SELECTOR = 1;
 
 const FilteredNewsPage = ({ params: { filter } }) => {
-  console.log(filter);
-
-  let news;
-  let links = getAvailableNewsYears();
+  let news, links, availableMonths;
+  const availableYears = getAvailableNewsYears();
   const selectedYear = filter?.[YEAR_SELECTOR];
   const selectedMonth = filter?.[MONTH_SELECTOR];
 
+  links = availableYears;
+
   if (selectedYear) {
     news = getNewsForYear(selectedYear);
-    links = getAvailableNewsMonths(selectedYear);
+    availableMonths = getAvailableNewsMonths(selectedYear);
+    links = availableMonths;
   }
 
   if (selectedMonth) {
     news = getNewsForYearAndMonth(selectedYear, selectedMonth);
     links = undefined;
+  }
+
+  if (
+    (selectedYear && !availableYears.includes(+selectedYear)) ||
+    (selectedMonth && !availableMonths.includes(+selectedMonth))
+  ) {
+    throw new Error("Invalid Year selected!");
   }
 
   const content = news?.length > 0;
