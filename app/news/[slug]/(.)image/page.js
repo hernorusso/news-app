@@ -8,10 +8,12 @@ const InterceptedNewsImagePage = ({ params: { slug } }) => {
 
   return (
     <>
-      <h2>Intercepted Page</h2>
-      <div className="fullscreen-image">
-        <img src={`/images/news/${image}`} alf={title} />
-      </div>
+      <div className="modal-backdrop" />
+      <dialog className="modal" open>
+        <div className="fullscreen-image">
+          <img src={`/images/news/${image}`} alf={title} />
+        </div>
+      </dialog>
     </>
   );
 };
