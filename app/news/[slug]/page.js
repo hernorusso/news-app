@@ -12,7 +12,7 @@ const NewsArticlePage = ({ params: { slug } }) => {
   return (
     <article className="news-article">
       <header>
-        <Link href={`${slug}/image`}>
+        <Link href={`/news/${slug}/image`}>
           <img src={`/images/news/${image}`} alt={title} />
         </Link>
         <h1>{title}</h1>
