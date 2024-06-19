@@ -40,3 +40,6 @@ next-env.d.ts
 
 #public image folder
 /public/images
+
+# fake backend
+/backend
