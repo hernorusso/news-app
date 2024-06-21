@@ -1,11 +1,8 @@
 import { NewsList } from "@/app/(news-list)";
+import { getAllNews } from "@/lib/news-utils";
 
 const NewsPage = async () => {
-  const response = await fetch("http://localhost:8080/news");
-  if (!response.ok) {
-    throw new Error("Failed when fetching data!");
-  }
-  const news = await response.json();
+  const news = getAllNews();
 
   return (
     <>
