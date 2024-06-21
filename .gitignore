@@ -37,6 +37,7 @@ next-env.d.ts
 
 # local database
 /meals.db
+/data.db
 
 #public image folder
 /public/images
