@@ -11,28 +11,28 @@ import {
 const YEAR_SELECTOR = 0;
 const MONTH_SELECTOR = 1;
 
-const FilteredNewsPage = ({ params: { filter } }) => {
+const FilteredNewsPage = async ({ params: { filter } }) => {
   let news, links, availableMonths;
-  const availableYears = getAvailableNewsYears();
+  const availableYears = await getAvailableNewsYears();
   const selectedYear = filter?.[YEAR_SELECTOR];
   const selectedMonth = filter?.[MONTH_SELECTOR];
 
   links = availableYears;
 
   if (selectedYear) {
-    news = getNewsForYear(selectedYear);
+    news = await getNewsForYear(selectedYear);
     availableMonths = getAvailableNewsMonths(selectedYear);
     links = availableMonths;
   }
 
   if (selectedMonth) {
-    news = getNewsForYearAndMonth(selectedYear, selectedMonth);
+    news = await getNewsForYearAndMonth(selectedYear, selectedMonth);
     links = undefined;
   }
 
   if (
-    (selectedYear && !availableYears.includes(+selectedYear)) ||
-    (selectedMonth && !availableMonths.includes(+selectedMonth))
+    (selectedYear && !availableYears.includes(selectedYear)) ||
+    (selectedMonth && !availableMonths.includes(selectedMonth))
   ) {
     throw new Error("Invalid Year selected!");
   }
@@ -62,9 +62,6 @@ const FilteredNewsPage = ({ params: { filter } }) => {
       {!content && <p>Content not Found!</p>}
     </>
   );
-  // const news = getNewsForYear(year);
-
-  // return <NewsList news={news} />;
 };
 
 export default FilteredNewsPage;
