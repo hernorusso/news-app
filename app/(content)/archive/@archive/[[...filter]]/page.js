@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Link from "next/link";
 
 import {
@@ -53,7 +54,9 @@ const FilteredNewsPage = async ({ params: { filter } }) => {
           </ul>
         </nav>
       </header>
-      <FilteredNews year={selectedYear} month={selectedMonth} />
+      <Suspense fallback={<p>Loading news...</p>}>
+        <FilteredNews year={selectedYear} month={selectedMonth} />
+      </Suspense>
     </>
   );
 };
